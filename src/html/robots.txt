@@ -1,0 +1,9 @@
+#https://developers.google.com/search/docs/advanced/robots/create-robots-txt?hl=fr
+
+#Interdire l'exploration de tout le site Web.
+User-agent: *
+Disallow: /
+
+#Bloquer toutes les images de votre site dans Google Images :
+User-agent: Googlebot-Image
+Disallow: /
