@@ -1,21 +1,17 @@
+/* directly from the file */
+@import "@catppuccin/palette/style";
+/* or using unpkg.com */
+@import url('https://unpkg.com/@catppuccin/palette/css/catppuccin.css');
+
 html{
-    font-family: 'Montserrat', sans-serif !important; /*!important to make sure nothing overrides this*/
+    font-family: 'Montserrat', sans-serif ;
     scroll-behavior: smooth;
 }
 
-:root{
-    /* Light theme palette */
-    --link-color:#1F2933;
-    --visited-color:#1F2933;
-    --hover-color:#234058;
-    --cloud-color:#e2fdff;
+body {
+	color: var(--ctp-mocha-text);
+	background: var(--ctp-mocha-base);
 }
-
-body{
-    margin: 0;
-    background-color: var(--cloud-color);
-}
-
 /* link */
 a {
     text-decoration: none;
@@ -23,17 +19,17 @@ a {
 
 /* unvisited link */
 a:link {
-    color:var(--link-color);
+    color: var(--ctp-mocha-text);
   }
 
 /* visited link */
 a:visited {
-    color: var(--visited-color);
+    color: var(--ctp-mocha-text);
   }
 
   /* mouse over link */
 a:hover {
-    color:var(--hover-color);
+    /* color:var(--hover-color); */
   }
 
 
@@ -47,11 +43,14 @@ a:hover {
 .myName{
     display: flex;
     justify-content:center;
-
-    margin: 0;
-    color:var(--link-color);
-    font-size: 2vmax;
-    justify-content: center;
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    /* identical to box height */
+    letter-spacing: 0.1em;
+    margin-top: 3vh;
+    color:var(--ctp-mocha-text);
 }
 
 nav{
@@ -87,29 +86,22 @@ li:first-child{
   /* --------------RESPONSIVE-------------- */
 @media screen and (max-width:400px){
     .quickPresentation{
-        margin:  15vh 0vw 0vh 0vw;
-        padding: 15vh 0vw 10vh 0vw !important;
+        /* margin:  15vh 0vw 0vh 0vw;
+        padding: 15vh 0vw 10vh 0vw !important; */
         /* background-size: cover !important; */
-        /* width: 100%; */
-    }
+        width: 100%;
+   /} 
 
     .quickPresentation p{
-        margin: 0 2vw 0 1.5vw;
-        padding-bottom: 0.75rem;
-        padding-left: 0.75rem;
+        width: 50vw;
     }
-
-    .presentationTextName{
-        font-size: 1rem;
-        font-weight: bold;
-    }
-
+    
     .quickDescription{
-        font-size: 0.75rem !important;                
+         /* font-size: 0.75rem !important;                  */
     }
 
     .socialIcons{
-        padding: 0 !important;
+        /* padding: 0 !important; */
     }
 }
 
@@ -119,75 +111,61 @@ li:first-child{
 /* Body size */
 .pageContent{
     min-height: calc(100vh - 23vh);
-}
-
-  /* ---Cloud content--- */
-
-.presentationTextName{
-    font-weight: bold;
-}
-
-.quickDescription{
-    font-style: italic;
+    display: flex;
+    flex-direction: column;
 }
 
 .quickPresentation{
+    max-width: 75%;
+    align-self: center;
+    padding-top: 20vh;
     display: flex;
-    text-align: center;
     flex-direction: row;
-    /* flex-wrap: wrap; */
-    align-items:center;
     justify-content: center;
-    margin-bottom: 0;
-    background-image: url(../img/cloud.svg);
-    background-repeat: no-repeat;
-    /* background-clip: border-box; */
-    background-position: center;
-    background-size: 70%;
-    background-size:contain;
-    padding: 20vh 20vw 20vh 20vw;
-    /* padding-top: 20vmax; */
-    /* min-height: 15vh; */
+
+}
+
+.presentationTextDesc{
+    margin-left: 10%;
 }
 
 .quickPresentationParagraph{
-    font-size: 1.5rem;
+    background-color: var(--ctp-mocha-mantle);
+    line-height: 1.75rem;
+    width: 100%;
+    padding: 5% 5% 3% 5%;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(108, 112, 134, 0.75);
+    border-radius: 15px;
+    box-shadow: 0px 2px 4px 0px rgba(108, 112, 134, 0.25);
+
+    /* font-size: 18px; */
     align-self: flex-start;
-    /* padding: 2vmax 0 0 2vmax; */
+    /* padding: 2vmax 0 0 2vmax;  */
 
 }
 
 .socialIcons{
     display: flex;
+    color: var(--ctp-mocha-text);
     justify-content:space-evenly;
-    padding-top: 1rem;
-    font-size: 2rem;
+    margin: 2vmax 0 2vmax 0;
+    font-size: 3rem !important;
 }
-
-.quickDescription{
-    font-style: italic;
-    font-size: 1rem;
-    margin: 0;
-
-}
-
 
   /* --------------FOOTER-------------- */
 footer{
-    background-image: url(../img/cloud-footer.svg);
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: 150vw 15vh;
     text-align: center;
     min-height: 15vh;
     padding-top: 8vh;
     width: 100%;
-    /* padding-bottom: 8vh; */
-    /* padding-bottom: 0; */
 }
 
 footer p{
     margin-top:  10vh;
+    font-family: 'Quicksand', sans-serif;
     font-size: 0.75rem;
 }
 
