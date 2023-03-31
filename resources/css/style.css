@@ -3,14 +3,108 @@
 /* or using unpkg.com */
 @import url('https://unpkg.com/@catppuccin/palette/css/catppuccin.css');
 
-html{
-    font-family: 'Montserrat', sans-serif ;
-    scroll-behavior: smooth;
+/* Color variables*/
+:root{
+    --text-color: var(--ctp-latte-text);
+    --background-color : var(--ctp-latte-base);
+    --foreground-color : var(--ctp-latte-mantle);
+    --icon-fill: var(--ctp-mocha-text);
+    --icon-fill-hover: (--ctp-latte-base);
 }
 
+/* Set style of the Light/Dark switch*/
+.theme-toggle{
+    --size: 2.5rem;
+    --icon-fill: --ctp-latte-text;
+    --icon-fill-hover: --ctp-latte-base;
+
+    background: none;
+    border: none;
+    padding: 0;
+
+    inline-size: var(--size);
+    block-size: var(--size);
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    color: var(--icon-fill);
+    display: grid;
+}
+
+/* Change colors according to the current theme*/
+html[data-theme='dark'] {
+    --text-color: var(--ctp-mocha-text);
+    --background-color : var(--ctp-mocha-base);
+    --foreground-color : var(--ctp-mocha-mantle)
+    --icon-fill: var(--ctp-mocha-text);
+}
+/* Change colors according to the current theme*/
+html[data-theme='light'] {
+    --text-color: var(--ctp-latte-text);
+    --background-color : var(--ctp-latte-base);
+    --foreground-color : var(--ctp-latte-mantle);
+}
+
+/* Properties of the sun and moon icons, making them overlap*/
+.moonIcon, .sunIcon{
+    grid-column-start: 1;
+    grid-row-start: 1;
+    inline-size: 100%;
+    block-size: 100%;
+    /* filter: drop-shadow(0px 0px 1px rgba(108, 112, 134, 0.25)); */
+}
+
+/* Change visible icon(sun/moon) when changing theme */
+html[data-theme='dark'] * > .sunIcon{
+    animation: iconOut 500ms forwards;
+}
+
+html[data-theme='dark'] * > .moonIcon{
+    animation: iconIn 2s forwards;
+}
+
+html[data-theme='light'] * > .sunIcon{
+    animation: iconIn 2s forwards;
+}
+
+html[data-theme='light'] * > .moonIcon{
+    animation: iconOut 500ms forwards;
+}
+
+/* Animate the Light/Dark toggle button when disappearing */
+@keyframes iconOut {
+    0%   {opacity: 1;}
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+  }
+/* Animate the Light/Dark toggle button when appearing */
+  @keyframes iconIn {
+    0%   {
+        visibility:visible;
+        opacity: 0;}
+    100% {
+        opacity: 1;
+    }
+  }
+
+/* Sets the default font & remove scrolling*/
+html{
+    font-family: 'Montserrat', sans-serif ;
+    overflow: hidden;
+}
+/* Sets text and bg colors + the wiodth of the content (the whole viewport)*/
 body {
-	color: var(--ctp-mocha-text);
-	background: var(--ctp-mocha-base);
+	color: var(--text-color);
+	background: var(--background-color);
+    width: 100vw;
+    height: 100vh;
+    width: 100svw;
+    height: 100svh;
 }
 /* link */
 a {
@@ -19,12 +113,12 @@ a {
 
 /* unvisited link */
 a:link {
-    color: var(--ctp-mocha-text);
+    color: var(--text-color);
   }
 
 /* visited link */
 a:visited {
-    color: var(--ctp-mocha-text);
+    color: var(--text-color);
   }
 
   /* mouse over link */
@@ -39,7 +133,7 @@ a:hover {
     flex-direction: row;
     flex: 1;
 }
-
+/* style of my name */
 .myName{
     display: flex;
     justify-content:center;
@@ -49,15 +143,15 @@ a:hover {
     font-size: 36px;
     /* identical to box height */
     letter-spacing: 0.1em;
-    margin-top: 3vh;
-    color:var(--ctp-mocha-text);
+    /* margin-top: 3vh; */
+    color:var(--text-color);
 }
-
+/* style of the navigation bar */
 nav{
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 100%;
+    /* height: 100%; */
     padding: 2vmax;
     /* position: sticky; */
     top: 0;
@@ -90,14 +184,14 @@ li:first-child{
         padding: 15vh 0vw 10vh 0vw !important; */
         /* background-size: cover !important; */
         width: 100%;
-   /} 
+   } 
 
     .quickPresentation p{
         width: 50vw;
     }
     
     .quickDescription{
-         /* font-size: 0.75rem !important;                  */
+         /* font-size: 0.75rem !important; */
     }
 
     .socialIcons{
@@ -110,15 +204,16 @@ li:first-child{
 
 /* Body size */
 .pageContent{
-    min-height: calc(100vh - 23vh);
+    justify-content: flex-start;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    justify-content: space-between
 }
 
 .quickPresentation{
     max-width: 75%;
     align-self: center;
-    padding-top: 20vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -130,7 +225,7 @@ li:first-child{
 }
 
 .quickPresentationParagraph{
-    background-color: var(--ctp-mocha-mantle);
+    background-color: var(--foreground-color);
     line-height: 1.75rem;
     width: 100%;
     padding: 5% 5% 3% 5%;
@@ -142,14 +237,14 @@ li:first-child{
     box-shadow: 0px 2px 4px 0px rgba(108, 112, 134, 0.25);
 
     /* font-size: 18px; */
-    align-self: flex-start;
+    /* align-self: flex-start; */
     /* padding: 2vmax 0 0 2vmax;  */
 
 }
-
+/* center, color and size the social icons/links */
 .socialIcons{
     display: flex;
-    color: var(--ctp-mocha-text);
+    color: var(--text-color);
     justify-content:space-evenly;
     margin: 2vmax 0 2vmax 0;
     font-size: 3rem !important;
@@ -158,13 +253,10 @@ li:first-child{
   /* --------------FOOTER-------------- */
 footer{
     text-align: center;
-    min-height: 15vh;
-    padding-top: 8vh;
-    width: 100%;
 }
 
 footer p{
-    margin-top:  10vh;
+    /* margin-top:  10vh; */
     font-family: 'Quicksand', sans-serif;
     font-size: 0.75rem;
 }
