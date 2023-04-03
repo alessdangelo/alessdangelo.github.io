@@ -1,263 +1,267 @@
-/* directly from the file */
-@import "@catppuccin/palette/style";
-/* or using unpkg.com */
-@import url('https://unpkg.com/@catppuccin/palette/css/catppuccin.css');
+@import "catppuccin.css";
 
 /* Color variables*/
-:root{
-    --text-color: var(--ctp-latte-text);
-    --background-color : var(--ctp-latte-base);
-    --foreground-color : var(--ctp-latte-mantle);
-    --icon-fill: var(--ctp-mocha-text);
-    --icon-fill-hover: (--ctp-latte-base);
+:root {
+  --text-color: var(--ctp-latte-text);
+  --background-color: var(--ctp-latte-base);
+  --foreground-color: var(--ctp-latte-mantle);
+  --icon-fill: var(--ctp-mocha-text);
+  --icon-fill-hover: (--ctp-latte-base);
 }
 
 /* Set style of the Light/Dark switch*/
-.theme-toggle{
-    --size: 2.5rem;
-    --icon-fill: --ctp-latte-text;
-    --icon-fill-hover: --ctp-latte-base;
+.theme-toggle {
+  --size: 2.5rem;
+  --icon-fill: --ctp-latte-text;
+  --icon-fill-hover: --ctp-latte-base;
 
-    background: none;
-    border: none;
-    padding: 0;
+  background: none;
+  border: none;
+  padding: 0;
 
-    inline-size: var(--size);
-    block-size: var(--size);
-    aspect-ratio: 1;
-    border-radius: 50%;
+  inline-size: var(--size);
+  block-size: var(--size);
+  aspect-ratio: 1;
+  border-radius: 50%;
 
-    cursor: pointer;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-    color: var(--icon-fill);
-    display: grid;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  color: var(--icon-fill);
+  display: grid;
 }
 
 /* Change colors according to the current theme*/
-html[data-theme='dark'] {
-    --text-color: var(--ctp-mocha-text);
-    --background-color : var(--ctp-mocha-base);
-    --foreground-color : var(--ctp-mocha-mantle)
-    --icon-fill: var(--ctp-mocha-text);
+html[data-theme="dark"] {
+  --text-color: var(--ctp-mocha-text);
+  --background-color: var(--ctp-mocha-base);
+  --foreground-color: var(--ctp-mocha-mantle);
 }
 /* Change colors according to the current theme*/
-html[data-theme='light'] {
-    --text-color: var(--ctp-latte-text);
-    --background-color : var(--ctp-latte-base);
-    --foreground-color : var(--ctp-latte-mantle);
+html[data-theme="light"] {
+  --text-color: var(--ctp-latte-text);
+  --background-color: var(--ctp-latte-base);
+  --foreground-color: var(--ctp-latte-mantle);
 }
 
 /* Properties of the sun and moon icons, making them overlap*/
-.moonIcon, .sunIcon{
-    grid-column-start: 1;
-    grid-row-start: 1;
-    inline-size: 100%;
-    block-size: 100%;
-    /* filter: drop-shadow(0px 0px 1px rgba(108, 112, 134, 0.25)); */
+.moonIcon,
+.sunIcon {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 /* Change visible icon(sun/moon) when changing theme */
-html[data-theme='dark'] * > .sunIcon{
-    animation: iconOut 500ms forwards;
+html[data-theme="dark"] * > .sunIcon {
+  animation: iconOut 500ms forwards;
 }
 
-html[data-theme='dark'] * > .moonIcon{
-    animation: iconIn 2s forwards;
+html[data-theme="dark"] * > .moonIcon {
+  animation: iconIn 2s forwards;
 }
 
-html[data-theme='light'] * > .sunIcon{
-    animation: iconIn 2s forwards;
+html[data-theme="light"] * > .sunIcon {
+  animation: iconIn 2s forwards;
+  color: var(--ctp-latte-yellow);
 }
 
-html[data-theme='light'] * > .moonIcon{
-    animation: iconOut 500ms forwards;
+html[data-theme="light"] * > .pacmanIcon {
+  color: var(--ctp-latte-yellow);
+  opacity: 0.5;
+}
+
+html[data-theme="dark"] * > .pacmanIcon {
+  color: var(--ctp-mocha-yellow);
+}
+
+html[data-theme="light"] * > .moonIcon {
+  animation: iconOut 500ms forwards;
 }
 
 /* Animate the Light/Dark toggle button when disappearing */
 @keyframes iconOut {
-    0%   {opacity: 1;}
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
+  0% {
+    opacity: 1;
   }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 /* Animate the Light/Dark toggle button when appearing */
-  @keyframes iconIn {
-    0%   {
-        visibility:visible;
-        opacity: 0;}
-    100% {
-        opacity: 1;
-    }
+@keyframes iconIn {
+  0% {
+    visibility: visible;
+    opacity: 0;
   }
+  100% {
+    opacity: 1;
+  }
+}
 
 /* Sets the default font & remove scrolling*/
-html{
-    font-family: 'Montserrat', sans-serif ;
-    overflow: hidden;
+html {
+  font-family: "Montserrat", sans-serif;
+  overflow: hidden;
 }
 /* Sets text and bg colors + the wiodth of the content (the whole viewport)*/
 body {
-	color: var(--text-color);
-	background: var(--background-color);
-    width: 100vw;
-    height: 100vh;
-    width: 100svw;
-    height: 100svh;
+  color: var(--text-color);
+  background: var(--background-color);
+  width: 100vw;
+  height: 100vh;
+  width: 100svw;
+  height: 100svh;
 }
 /* link */
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* unvisited link */
 a:link {
-    color: var(--text-color);
-  }
+  color: var(--text-color);
+}
 
 /* visited link */
 a:visited {
-    color: var(--text-color);
-  }
+  color: var(--text-color);
+}
 
-  /* mouse over link */
+/* mouse over link */
 a:hover {
-    /* color:var(--hover-color); */
-  }
+  /* color:var(--hover-color); */
+}
 
-
-  /* --------------NAV BAR-------------- */
-.heading{
-    display: flex;
-    flex-direction: row;
-    flex: 1;
+/* --------------NAV BAR-------------- */
+.heading {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 }
 /* style of my name */
-.myName{
-    display: flex;
-    justify-content:center;
-    font-family: 'Quicksand', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 36px;
-    /* identical to box height */
-    letter-spacing: 0.1em;
-    /* margin-top: 3vh; */
-    color:var(--text-color);
+.myName {
+  display: flex;
+  justify-content: center;
+  font-family: "Quicksand", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  /* identical to box height */
+  letter-spacing: 0.1em;
+  /* margin-top: 3vh; */
+  color: var(--text-color);
 }
 /* style of the navigation bar */
-nav{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    /* height: 100%; */
-    padding: 2vmax;
-    /* position: sticky; */
-    top: 0;
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* height: 100%; */
+  padding: 2vmax;
+  /* position: sticky; */
+  top: 0;
 }
-  
-ul{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-right: 2vmax;
+
+ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 2vmax;
 }
 
 li {
-    display: flex;
-    list-style: none;
-    padding-left: 2vmax;
-    float: right;
-    font-weight: bold;
-    /* margin: 0 15px */
+  display: flex;
+  list-style: none;
+  padding-left: 2vmax;
+  float: right;
+  font-weight: bold;
+  /* margin: 0 15px */
 }
 
-li:first-child{
-    padding-left: 2vw;
+li:first-child {
+  padding-left: 2vw;
 }
 
-  /* --------------RESPONSIVE-------------- */
-@media screen and (max-width:400px){
-    .quickPresentation{
-        /* margin:  15vh 0vw 0vh 0vw;
+/* --------------RESPONSIVE-------------- */
+@media screen and (max-width: 400px) {
+  .quickPresentation {
+    /* margin:  15vh 0vw 0vh 0vw;
         padding: 15vh 0vw 10vh 0vw !important; */
-        /* background-size: cover !important; */
-        width: 100%;
-   } 
+    /* background-size: cover !important; */
+    width: 100%;
+  }
 
-    .quickPresentation p{
-        width: 50vw;
-    }
-    
-    .quickDescription{
-         /* font-size: 0.75rem !important; */
-    }
+  .quickPresentation p {
+    width: 50vw;
+  }
 
-    .socialIcons{
-        /* padding: 0 !important; */
-    }
+  .quickDescription {
+    /* font-size: 0.75rem !important; */
+  }
+
+  .socialIcons {
+    /* padding: 0 !important; */
+  }
 }
 
-
-  /* --------------BODY-------------- */
+/* --------------BODY-------------- */
 
 /* Body size */
-.pageContent{
-    justify-content: flex-start;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between
+.pageContent {
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
 }
 
-.quickPresentation{
-    max-width: 75%;
-    align-self: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
+.quickPresentation {
+  max-width: 75%;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.presentationTextDesc{
-    margin-left: 10%;
+.presentationTextDesc {
+  margin-left: 10%;
 }
 
-.quickPresentationParagraph{
-    background-color: var(--foreground-color);
-    line-height: 1.75rem;
-    width: 100%;
-    padding: 5% 5% 3% 5%;
-    font-style: normal;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    border: 1px solid rgba(108, 112, 134, 0.75);
-    border-radius: 15px;
-    box-shadow: 0px 2px 4px 0px rgba(108, 112, 134, 0.25);
+.quickPresentationParagraph {
+  background-color: var(--foreground-color);
+  line-height: 1.75rem;
+  width: 100%;
+  padding: 5% 5% 3% 5%;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(108, 112, 134, 0.75);
+  border-radius: 15px;
+  box-shadow: 0px 2px 4px 0px rgba(108, 112, 134, 0.25);
 
-    /* font-size: 18px; */
-    /* align-self: flex-start; */
-    /* padding: 2vmax 0 0 2vmax;  */
-
+  /* font-size: 18px; */
+  /* align-self: flex-start; */
+  /* padding: 2vmax 0 0 2vmax;  */
 }
 /* center, color and size the social icons/links */
-.socialIcons{
-    display: flex;
-    color: var(--text-color);
-    justify-content:space-evenly;
-    margin: 2vmax 0 2vmax 0;
-    font-size: 3rem !important;
+.socialIcons {
+  display: flex;
+  color: var(--text-color);
+  justify-content: space-evenly;
+  margin: 2vmax 0 2vmax 0;
+  font-size: 3rem !important;
 }
 
-  /* --------------FOOTER-------------- */
-footer{
-    text-align: center;
+/* --------------FOOTER-------------- */
+footer {
+  text-align: center;
 }
 
-footer p{
-    /* margin-top:  10vh; */
-    font-family: 'Quicksand', sans-serif;
-    font-size: 0.75rem;
+footer p {
+  /* margin-top:  10vh; */
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.75rem;
 }
-
