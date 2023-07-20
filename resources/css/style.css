@@ -1,4 +1,5 @@
 @import "catppuccin.css";
+@import "fonts.css";
 
 /* Color variables*/
 :root {
@@ -104,6 +105,7 @@ html[data-theme="light"] * > .moonIcon {
 /* Sets the default font & remove scrolling*/
 html {
   font-family: "Montserrat", sans-serif;
+  font-style: normal;
   overflow: hidden;
 }
 /* Sets text and bg colors + the wiodth of the content (the whole viewport)*/
@@ -236,7 +238,7 @@ li:first-child {
   width: 100%;
   padding: 5% 5% 3% 5%;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.05em;
   border: 1px solid rgba(108, 112, 134, 0.75);
   border-radius: 15px;

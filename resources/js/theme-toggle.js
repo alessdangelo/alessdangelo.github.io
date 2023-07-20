@@ -50,8 +50,4 @@ window
     theme.value = isDark ? "dark" : "light";
     setPreference();
   });
-function playAudio(url) {
-  audioSound = new Audio(url);
-  audioSound.volume = 0.2;
-  audioSound.play();
-}
+
