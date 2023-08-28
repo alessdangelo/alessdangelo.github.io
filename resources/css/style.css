@@ -12,7 +12,7 @@
 
 /* Set style of the Light/Dark switch*/
 .theme-toggle {
-  --size: 2.5rem;
+  --size: 2rem;
   --icon-fill: --ctp-latte-text;
   --icon-fill-hover: --ctp-latte-base;
 
@@ -161,10 +161,14 @@ nav {
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* height: 100%; */
   padding: 2vmax;
-  /* position: sticky; */
   top: 0;
+}
+
+.navLink{
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  margin-right: 1em;
 }
 
 ul {

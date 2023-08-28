@@ -1,12 +1,5 @@
 const storageKey = "theme-preference";
 
-const onClick = () => {
-  // flip current value
-  theme.value = theme.value === "light" ? "dark" : "light";
-
-  setPreference();
-};
-
 const getColorPreference = () => {
   if (localStorage.getItem(storageKey)) return localStorage.getItem(storageKey);
   else
@@ -15,9 +8,8 @@ const getColorPreference = () => {
       : "light";
 };
 
-const setPreference = () => {
-  localStorage.setItem(storageKey, theme.value);
-  reflectPreference();
+const theme = {
+  value: getColorPreference(),
 };
 
 const reflectPreference = () => {
@@ -28,8 +20,16 @@ const reflectPreference = () => {
     ?.setAttribute("aria-label", theme.value);
 };
 
-const theme = {
-  value: getColorPreference(),
+const setPreference = () => {
+  localStorage.setItem(storageKey, theme.value);
+  reflectPreference();
+};
+
+const onClick = () => {
+  // flip current value
+  theme.value = theme.value === "light" ? "dark" : "light";
+
+  setPreference();
 };
 
 // set early so no page flashes / CSS is made aware
